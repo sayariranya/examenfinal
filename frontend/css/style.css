@@ -1,0 +1,52 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: Arial, sans-serif; background: #f0f2f5; padding: 30px; }
+
+.container { max-width: 600px; margin: auto; }
+
+h1 { text-align: center; margin-bottom: 20px; color: #333; }
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+textarea { height: 80px; }
+
+button {
+  background: #0052cc;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover { background: #0041a8; }
+
+.message { padding: 12px; border-radius: 6px; text-align: center; font-weight: bold; display: none; }
+.message.success { background: #e3fcef; color: #006644; display: block; }
+.message.error { background: #ffebe6; color: #bf2600; display: block; }
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-valider {
+  background: #28a745;
+}
+
+.btn-valider:hover {
+  background: #218838;
+}

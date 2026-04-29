@@ -1,0 +1,10 @@
+{
+  "name": "tests-acceptation",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0"
+  }
+}
