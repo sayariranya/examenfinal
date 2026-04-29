@@ -1,4 +1,3 @@
-cat > .github/workflows/auto-tag.yml << 'EOF'
 name: Auto Tag
 
 on:
@@ -9,24 +8,20 @@ on:
 jobs:
   tag:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Get latest tag
-        id: get_tag
+      - name: Get latest tag and create new one
         run: |
           git fetch --tags
           LATEST=$(git tag | sort -V | tail -1)
           if [ -z "$LATEST" ]; then
             LATEST="v0.0.0"
           fi
-          echo "latest=$LATEST" >> $GITHUB_OUTPUT
-
-      - name: Create new tag
-        run: |
-          LATEST=${{ steps.get_tag.outputs.latest }}
           MAJOR=$(echo $LATEST | cut -d. -f1 | tr -d v)
           MINOR=$(echo $LATEST | cut -d. -f2)
           PATCH=$(echo $LATEST | cut -d. -f3)
@@ -35,4 +30,3 @@ jobs:
           git config user.name "GitHub Action"
           git tag -a $NEW -m "Auto tag $NEW"
           git push origin $NEW
-EOF
