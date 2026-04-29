@@ -28,7 +28,7 @@ jobs:
       - name: Run tests
         run: echo "✅ Tests réussis"
 
-  # 3. AUTO TAG
+  # 3. AUTO TAG.
   tag:
     runs-on: ubuntu-latest
     needs: test
